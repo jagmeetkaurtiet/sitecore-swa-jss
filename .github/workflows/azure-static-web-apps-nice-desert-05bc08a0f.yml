@@ -34,7 +34,22 @@ jobs:
           skip_app_build: true
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+          JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
+          SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
+          SITECORE_API_HOST:  ${{ secrets.SITECORE_API_HOST }}
+          GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
+        env: # Add environment variables here
+          FUNCTION_LANGUAGE_VERSION: 16
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+          JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
+          SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
+          SITECORE_API_HOST:  ${{ secrets.SITECORE_API_HOST }}
+          GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
