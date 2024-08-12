@@ -15,10 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           submodules: true
-          lfs: false
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -30,10 +29,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
-          is_static_export: true
-          skip_app_build: true
-          output_location: "" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          output_location: "/.next" # Built app content directory - optional
           PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
           JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
           SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
@@ -41,6 +37,7 @@ jobs:
           GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
+          ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           FUNCTION_LANGUAGE_VERSION: 16
           PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
@@ -50,6 +47,7 @@ jobs:
           GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
