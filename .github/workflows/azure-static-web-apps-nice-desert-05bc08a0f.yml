@@ -35,8 +35,8 @@ jobs:
           SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
           SITECORE_API_HOST:  ${{ secrets.SITECORE_API_HOST }}
           GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
+          AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=https;AccountName=prefxstorageaccount;AccountKey=h1HFaMg6lF74h9NMdmIs/wku5o5NjNp72SxF6nCorB97P7nWoMfZOk6pP7t4eWaWsxHrQmtW8O8c+AStu5J/Gw==;EndpointSuffix=core.windows.net
+          AZURE_BLOB_CONTAINER: prefxcontainer
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           FUNCTION_LANGUAGE_VERSION: 16
@@ -45,8 +45,8 @@ jobs:
           SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
           SITECORE_API_HOST:  ${{ secrets.SITECORE_API_HOST }}
           GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
+          AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=https;AccountName=prefxstorageaccount;AccountKey=h1HFaMg6lF74h9NMdmIs/wku5o5NjNp72SxF6nCorB97P7nWoMfZOk6pP7t4eWaWsxHrQmtW8O8c+AStu5J/Gw==;EndpointSuffix=core.windows.net
+          AZURE_BLOB_CONTAINER: prefxcontainer
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
