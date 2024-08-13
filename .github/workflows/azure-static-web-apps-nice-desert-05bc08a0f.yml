@@ -30,13 +30,13 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "/.next" # Built app content directory - optional
-          PUBLIC_URL: https://nice-desert-05bc08a0f.5.azurestaticapps.net
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
           JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
           SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
           SITECORE_API_HOST:  ${{ secrets.SITECORE_API_HOST }}
           GRAPH_QL_ENDPOINT: ${{ secrets.GRAPH_QL_ENDPOINT }}
-          AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=https;AccountName=prefxstorageaccount;AccountKey=h1HFaMg6lF74h9NMdmIs/wku5o5NjNp72SxF6nCorB97P7nWoMfZOk6pP7t4eWaWsxHrQmtW8O8c+AStu5J/Gw==;EndpointSuffix=core.windows.net
-          AZURE_BLOB_CONTAINER: prefxcontainer
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          AZURE_BLOB_CONTAINER: ${{ secrets.AZURE_BLOB_CONTAINER }}
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           FUNCTION_LANGUAGE_VERSION: 16
